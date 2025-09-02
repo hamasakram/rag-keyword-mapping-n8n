@@ -9,7 +9,7 @@ CREATE EXTENSION IF NOT EXISTS pgcrypto;
 CREATE TABLE IF NOT EXISTS keywords (
     id SERIAL PRIMARY KEY,
     keyword TEXT NOT NULL,
-    embedding VECTOR(1536), -- matches Gemini embedding size
+    embedding VECTOR(768), -- matches Gemini embedding size (768)
     used BOOLEAN DEFAULT FALSE
 );
 

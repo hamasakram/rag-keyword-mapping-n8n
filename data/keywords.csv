@@ -1,0 +1,52 @@
+keyword,meta
+wireless headphones,{"sv":24000,"note":"electronics"}
+gaming mouse,{"sv":12000,"note":"electronics"}
+office chair,{"sv":8000,"note":"furniture"}
+standing desk,{"sv":6500,"note":"furniture"}
+ergonomic keyboard,{"sv":5000,"note":"electronics"}
+smartwatch,{"sv":22000,"note":"wearables"}
+dslr camera,{"sv":15000,"note":"photography"}
+gaming laptop,{"sv":30000,"note":"electronics"}
+yoga mat,{"sv":7000,"note":"fitness"}
+running shoes,{"sv":18000,"note":"sportswear"}
+protein powder,{"sv":14000,"note":"nutrition"}
+electric scooter,{"sv":11000,"note":"mobility"}
+air purifier,{"sv":9500,"note":"home_appliances"}
+robot vacuum,{"sv":13000,"note":"home_appliances"}
+coffee machine,{"sv":9000,"note":"kitchen"}
+water filter,{"sv":6000,"note":"kitchen"}
+smart tv,{"sv":28000,"note":"electronics"}
+projector,{"sv":12500,"note":"electronics"}
+electric guitar,{"sv":8500,"note":"music"}
+piano keyboard,{"sv":12000,"note":"music"}
+blender,{"sv":7000,"note":"kitchen"}
+microwave oven,{"sv":10000,"note":"kitchen"}
+induction cooktop,{"sv":4500,"note":"kitchen"}
+washing machine,{"sv":17000,"note":"home_appliances"}
+refrigerator,{"sv":25000,"note":"home_appliances"}
+sofa set,{"sv":15000,"note":"furniture"}
+dining table,{"sv":9500,"note":"furniture"}
+bed frame,{"sv":12000,"note":"furniture"}
+mattress,{"sv":22000,"note":"furniture"}
+curtains,{"sv":6000,"note":"home_decor"}
+wall clock,{"sv":5000,"note":"home_decor"}
+floor lamp,{"sv":4500,"note":"home_decor"}
+air conditioner,{"sv":20000,"note":"home_appliances"}
+heater,{"sv":10000,"note":"home_appliances"}
+hair dryer,{"sv":7000,"note":"personal_care"}
+electric shaver,{"sv":6500,"note":"personal_care"}
+makeup kit,{"sv":15000,"note":"beauty"}
+lipstick,{"sv":14000,"note":"beauty"}
+perfume,{"sv":16000,"note":"beauty"}
+baby stroller,{"sv":8000,"note":"baby_products"}
+diapers,{"sv":20000,"note":"baby_products"}
+toys,{"sv":30000,"note":"kids"}
+lego set,{"sv":12000,"note":"kids"}
+board games,{"sv":9000,"note":"kids"}
+camping tent,{"sv":7000,"note":"outdoors"}
+sleeping bag,{"sv":6500,"note":"outdoors"}
+hiking boots,{"sv":7500,"note":"outdoors"}
+fishing rod,{"sv":5500,"note":"outdoors"}
+sunscreen,{"sv":10000,"note":"personal_care"}
+sunglasses,{"sv":22000,"note":"fashion"}
+backpack,{"sv":15000,"note":"fashion"}
