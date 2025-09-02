@@ -9,15 +9,15 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-print("🚀 Starting keyword embedding script...")
+print("Starting keyword embedding script...")
 
 # Configure Gemini client
 api_key = os.getenv("GEMINI_API_KEY")
 if not api_key:
-    print("❌ Error: GEMINI_API_KEY environment variable not set")
+    print("Error: GEMINI_API_KEY environment variable not set")
     exit(1)
 
-print(f"✅ Gemini API key configured: {api_key[:10]}...")
+print(f"Gemini API key configured: {api_key[:10]}...")
 genai.configure(api_key=api_key)
 
 # Database connection
@@ -30,14 +30,14 @@ conn = psycopg2.connect(
     port=os.getenv("PGPORT", 5432),
 )
 cur = conn.cursor()
-print("✅ Database connected successfully")
+print(" Database connected successfully")
 
 # Load CSV file
 csv_path = os.path.join(os.path.dirname(__file__), "../data/keywords.csv")
-print(f"📁 Loading CSV from: {csv_path}")
+print(f" Loading CSV from: {csv_path}")
 
 if not os.path.exists(csv_path):
-    print(f"❌ Error: CSV file not found at {csv_path}")
+    print(f"Error: CSV file not found at {csv_path}")
     exit(1)
 
 # Read file line by line to handle unquoted JSON
@@ -55,23 +55,23 @@ with open(csv_path, "r", encoding="utf-8") as f:
                 meta_raw = parts[1].strip()
                 rows.append({"keyword": keyword, "meta": meta_raw})
             else:
-                print(f"⚠️ Skipping malformed line: {line}")
+                print(f"Skipping malformed line: {line}")
 
-print(f"📊 Found {len(rows)} keywords to process")
+print(f"Found {len(rows)} keywords to process")
 
 for i, row in enumerate(rows):
     keyword = row["keyword"]
     meta_raw = row["meta"]
     
-    print(f"🔄 Processing {i+1}/{len(rows)}: {keyword}")
+    print(f"Processing {i+1}/{len(rows)}: {keyword}")
 
     # Parse meta as JSON if present, else None
     try:
         meta = json.loads(meta_raw) if meta_raw else None
         if meta:
-            print(f"  📋 Meta: {meta}")
+            print(f"Meta: {meta}")
     except json.JSONDecodeError:
-        print(f"⚠️ Skipping invalid meta for keyword: {keyword}")
+        print(f"Skipping invalid meta for keyword: {keyword}")
         meta = None
 
     # Check if keyword already exists
@@ -85,9 +85,9 @@ for i, row in enumerate(rows):
                 "UPDATE keywords SET meta = %s WHERE keyword = %s",
                 (Json(meta) if meta else None, keyword)
             )
-            print(f"  ✅ Updated meta for existing keyword: {keyword}")
+            print(f"Updated meta for existing keyword: {keyword}")
         except Exception as e:
-            print(f"  ❌ Failed to update meta for {keyword}: {e}")
+            print(f" Failed to update meta for {keyword}: {e}")
     else:
         # Generate embedding and insert new record
         try:
@@ -96,15 +96,15 @@ for i, row in enumerate(rows):
                 content=keyword
             )
             embedding = response['embedding']  # Returns 768-dim vector
-            print(f"  ✅ Generated embedding for: {keyword}")
+            print(f"   Generated embedding for: {keyword}")
             
             cur.execute(
                 "INSERT INTO keywords (keyword, embedding, source_file, meta) VALUES (%s, %s, %s, %s)",
                 (keyword, embedding, "keywords.csv", Json(meta) if meta else None)
             )
-            print(f"  ✅ Inserted new keyword: {keyword}")
+            print(f"   Inserted new keyword: {keyword}")
         except Exception as e:
-            print(f"  ❌ Failed to process {keyword}: {e}")
+            print(f" Failed to process {keyword}: {e}")
             continue
 
 print("💾 Committing changes...")
