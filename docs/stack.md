@@ -230,5 +230,14 @@ python scripts/embed_and_upsert.py
 - **Categories**: electronics, furniture, wearables, photography, fitness, sportswear, nutrition, mobility, home_appliances, kitchen, music, home_decor, personal_care, beauty, baby_products, kids, outdoors, fashion
 - **Search Volume Range**: 4,500 - 30,000
 
-### 🚀 **Ready for Phase 3**
-The system is now ready for n8n workflow integration and RAG query system development.
+### 🚀 **Phase 3 In Progress: Image → Description → Embedding**
+We now support a full image understanding path using Gemini vision + embeddings. See the Phase 3 section in the project `README.md` for usage, and a sample run using `data/Images/OIP.jpg` including Top‑K keyword retrieval.
+
+High-level flow:
+- Input: product image (e.g., `data/Images/OIP.jpg`)
+- Vision caption: Gemini 1.5 Pro generates a concise description
+- Embedding: `models/embedding-001` (768D) for parity with `keywords`
+- Optional store: persist to `product_descriptions`
+- Retrieval: cosine similarity against `keywords.embedding`
+- Output: JSON with `description`, `embedding_dim`, optional `stored_id`, and `topk_keywords`
+

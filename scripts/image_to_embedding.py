@@ -40,7 +40,7 @@ def main():
     with open(image_path, 'rb') as f:
         image_bytes = f.read()
 
-    model = genai.GenerativeModel("gemini-1.5-pro-001")
+    model = genai.GenerativeModel("gemini-1.5-pro")
     prompt = "Describe the product in this image. Focus on product type, brand, features, materials, style, and use-case. Keep it concise but informative."
     response = model.generate_content([
         prompt,
